@@ -5,3 +5,26 @@
 число, чем то, что загадано. Если за 10 попыток число не отгадано,
 то вывести загаданное число.
 """
+
+import random
+
+answer = random.randint(0, 100)
+max_count = 10
+i = 1
+
+print('Угадай число, которое я загадал!')
+while i <= max_count:
+    user_answer = int(input('Введи число от 0 до 100:'))
+    if user_answer == answer:
+        print('Поздравляю, ты угадал!')
+        break
+    elif user_answer < answer:
+        print('Твое число меньше чем то, что загадано!')
+        print('У тебя осталось {} попыток!'.format(max_count - i))
+    else:
+        print('Твое число больше чем то, что загадано!')
+        print('У тебя осталось {} попыток!'.format(max_count - i))
+    i += 1
+print('К сожалению ты не смог угадать за {} попыток'.format(max_count))
+print('Правильный ответ был:', answer)
+

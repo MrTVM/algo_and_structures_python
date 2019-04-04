@@ -3,3 +3,16 @@
 Пусть дана строка S длиной N, состоящая только из маленьких латинских букв.
 Требуется найти количество различных подстрок в этой строке.
 """
+
+user_str = input('Введите строку, состоящую только из маленьких латинских букв: ')
+uniq_str = set()
+for i in range(len(user_str)):
+    if i == 0:
+        n = len(user_str) - 1
+    else:
+        n = len(user_str)
+    for j in range(n, i, -1):
+        uniq_str.add(hash(user_str[i:j]))
+print(uniq_str)
+print('Количество различных подстрок в строке: ', len(uniq_str))
+
